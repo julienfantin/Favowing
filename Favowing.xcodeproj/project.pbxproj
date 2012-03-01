@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		71DF735214FFE3C9001E91C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735114FFE3C9001E91C0 /* UIKit.framework */; };
+		71DF735414FFE3C9001E91C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735314FFE3C9001E91C0 /* Foundation.framework */; };
+		71DF735614FFE3C9001E91C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735514FFE3C9001E91C0 /* CoreGraphics.framework */; };
+		71DF735814FFE3C9001E91C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735714FFE3C9001E91C0 /* CoreData.framework */; };
+		71DF735E14FFE3C9001E91C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71DF735C14FFE3C9001E91C0 /* InfoPlist.strings */; };
+		71DF736014FFE3C9001E91C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF735F14FFE3C9001E91C0 /* main.m */; };
+		71DF736414FFE3C9001E91C0 /* FWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736314FFE3C9001E91C0 /* FWAppDelegate.m */; };
+		71DF736714FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DF736514FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard */; };
+		71DF736A14FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */; };
+		71DF736D14FFE3C9001E91C0 /* Favowing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736B14FFE3C9001E91C0 /* Favowing.xcdatamodeld */; };
+		71DF737014FFE3C9001E91C0 /* FWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736F14FFE3C9001E91C0 /* FWMasterViewController.m */; };
+		71DF737314FFE3C9001E91C0 /* FWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF737214FFE3C9001E91C0 /* FWDetailViewController.m */; };
+		71DF737B14FFE3C9001E91C0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF737A14FFE3C9001E91C0 /* SenTestingKit.framework */; };
+		71DF737C14FFE3C9001E91C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735114FFE3C9001E91C0 /* UIKit.framework */; };
+		71DF737D14FFE3C9001E91C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735314FFE3C9001E91C0 /* Foundation.framework */; };
+		71DF737E14FFE3C9001E91C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735714FFE3C9001E91C0 /* CoreData.framework */; };
+		71DF738614FFE3C9001E91C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71DF738414FFE3C9001E91C0 /* InfoPlist.strings */; };
+		71DF738914FFE3C9001E91C0 /* FavowingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF738814FFE3C9001E91C0 /* FavowingTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71DF737F14FFE3C9001E91C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71DF734414FFE3C9001E91C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71DF734C14FFE3C9001E91C0;
+			remoteInfo = Favowing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		71DF734D14FFE3C9001E91C0 /* Favowing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Favowing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71DF735114FFE3C9001E91C0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		71DF735314FFE3C9001E91C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		71DF735514FFE3C9001E91C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		71DF735714FFE3C9001E91C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		71DF735B14FFE3C9001E91C0 /* Favowing-Info.plist */ = {isa = PBXFileReference; path = "Favowing-Info.plist"; sourceTree = "<group>"; };
+		71DF735D14FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		71DF735F14FFE3C9001E91C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		71DF736114FFE3C9001E91C0 /* Favowing-Prefix.pch */ = {isa = PBXFileReference; path = "Favowing-Prefix.pch"; sourceTree = "<group>"; };
+		71DF736214FFE3C9001E91C0 /* FWAppDelegate.h */ = {isa = PBXFileReference; path = FWAppDelegate.h; sourceTree = "<group>"; };
+		71DF736314FFE3C9001E91C0 /* FWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWAppDelegate.m; sourceTree = "<group>"; };
+		71DF736614FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		71DF736914FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		71DF736C14FFE3C9001E91C0 /* Favowing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favowing.xcdatamodel; sourceTree = "<group>"; };
+		71DF736E14FFE3C9001E91C0 /* FWMasterViewController.h */ = {isa = PBXFileReference; path = FWMasterViewController.h; sourceTree = "<group>"; };
+		71DF736F14FFE3C9001E91C0 /* FWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWMasterViewController.m; sourceTree = "<group>"; };
+		71DF737114FFE3C9001E91C0 /* FWDetailViewController.h */ = {isa = PBXFileReference; path = FWDetailViewController.h; sourceTree = "<group>"; };
+		71DF737214FFE3C9001E91C0 /* FWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWDetailViewController.m; sourceTree = "<group>"; };
+		71DF737914FFE3C9001E91C0 /* FavowingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavowingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71DF737A14FFE3C9001E91C0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		71DF738314FFE3C9001E91C0 /* FavowingTests-Info.plist */ = {isa = PBXFileReference; path = "FavowingTests-Info.plist"; sourceTree = "<group>"; };
+		71DF738514FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		71DF738714FFE3C9001E91C0 /* FavowingTests.h */ = {isa = PBXFileReference; path = FavowingTests.h; sourceTree = "<group>"; };
+		71DF738814FFE3C9001E91C0 /* FavowingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavowingTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71DF734A14FFE3C9001E91C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71DF735214FFE3C9001E91C0 /* UIKit.framework in Frameworks */,
+				71DF735414FFE3C9001E91C0 /* Foundation.framework in Frameworks */,
+				71DF735614FFE3C9001E91C0 /* CoreGraphics.framework in Frameworks */,
+				71DF735814FFE3C9001E91C0 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71DF737514FFE3C9001E91C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71DF737B14FFE3C9001E91C0 /* SenTestingKit.framework in Frameworks */,
+				71DF737C14FFE3C9001E91C0 /* UIKit.framework in Frameworks */,
+				71DF737D14FFE3C9001E91C0 /* Foundation.framework in Frameworks */,
+				71DF737E14FFE3C9001E91C0 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		71DF734214FFE3C9001E91C0 = {
+			isa = PBXGroup;
+			children = (
+				71DF735914FFE3C9001E91C0 /* Favowing */,
+				71DF738114FFE3C9001E91C0 /* FavowingTests */,
+				71DF735014FFE3C9001E91C0 /* Frameworks */,
+				71DF734E14FFE3C9001E91C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		71DF734E14FFE3C9001E91C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71DF734D14FFE3C9001E91C0 /* Favowing.app */,
+				71DF737914FFE3C9001E91C0 /* FavowingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71DF735014FFE3C9001E91C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71DF735114FFE3C9001E91C0 /* UIKit.framework */,
+				71DF735314FFE3C9001E91C0 /* Foundation.framework */,
+				71DF735514FFE3C9001E91C0 /* CoreGraphics.framework */,
+				71DF735714FFE3C9001E91C0 /* CoreData.framework */,
+				71DF737A14FFE3C9001E91C0 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71DF735914FFE3C9001E91C0 /* Favowing */ = {
+			isa = PBXGroup;
+			children = (
+				71DF736214FFE3C9001E91C0 /* FWAppDelegate.h */,
+				71DF736314FFE3C9001E91C0 /* FWAppDelegate.m */,
+				71DF736514FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard */,
+				71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */,
+				71DF736E14FFE3C9001E91C0 /* FWMasterViewController.h */,
+				71DF736F14FFE3C9001E91C0 /* FWMasterViewController.m */,
+				71DF737114FFE3C9001E91C0 /* FWDetailViewController.h */,
+				71DF737214FFE3C9001E91C0 /* FWDetailViewController.m */,
+				71DF736B14FFE3C9001E91C0 /* Favowing.xcdatamodeld */,
+				71DF735A14FFE3C9001E91C0 /* Supporting Files */,
+			);
+			path = Favowing;
+			sourceTree = "<group>";
+		};
+		71DF735A14FFE3C9001E91C0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				71DF735B14FFE3C9001E91C0 /* Favowing-Info.plist */,
+				71DF735C14FFE3C9001E91C0 /* InfoPlist.strings */,
+				71DF735F14FFE3C9001E91C0 /* main.m */,
+				71DF736114FFE3C9001E91C0 /* Favowing-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		71DF738114FFE3C9001E91C0 /* FavowingTests */ = {
+			isa = PBXGroup;
+			children = (
+				71DF738714FFE3C9001E91C0 /* FavowingTests.h */,
+				71DF738814FFE3C9001E91C0 /* FavowingTests.m */,
+				71DF738214FFE3C9001E91C0 /* Supporting Files */,
+			);
+			path = FavowingTests;
+			sourceTree = "<group>";
+		};
+		71DF738214FFE3C9001E91C0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				71DF738314FFE3C9001E91C0 /* FavowingTests-Info.plist */,
+				71DF738414FFE3C9001E91C0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71DF734C14FFE3C9001E91C0 /* Favowing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71DF738C14FFE3C9001E91C0 /* Build configuration list for PBXNativeTarget "Favowing" */;
+			buildPhases = (
+				71DF734914FFE3C9001E91C0 /* Sources */,
+				71DF734A14FFE3C9001E91C0 /* Frameworks */,
+				71DF734B14FFE3C9001E91C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Favowing;
+			productName = Favowing;
+			productReference = 71DF734D14FFE3C9001E91C0 /* Favowing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		71DF737814FFE3C9001E91C0 /* FavowingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71DF738F14FFE3C9001E91C0 /* Build configuration list for PBXNativeTarget "FavowingTests" */;
+			buildPhases = (
+				71DF737414FFE3C9001E91C0 /* Sources */,
+				71DF737514FFE3C9001E91C0 /* Frameworks */,
+				71DF737614FFE3C9001E91C0 /* Resources */,
+				71DF737714FFE3C9001E91C0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71DF738014FFE3C9001E91C0 /* PBXTargetDependency */,
+			);
+			name = FavowingTests;
+			productName = FavowingTests;
+			productReference = 71DF737914FFE3C9001E91C0 /* FavowingTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71DF734414FFE3C9001E91C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = C6;
+			};
+			buildConfigurationList = 71DF734714FFE3C9001E91C0 /* Build configuration list for PBXProject "Favowing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 71DF734214FFE3C9001E91C0;
+			productRefGroup = 71DF734E14FFE3C9001E91C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71DF734C14FFE3C9001E91C0 /* Favowing */,
+				71DF737814FFE3C9001E91C0 /* FavowingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71DF734B14FFE3C9001E91C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71DF735E14FFE3C9001E91C0 /* InfoPlist.strings in Resources */,
+				71DF736714FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard in Resources */,
+				71DF736A14FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71DF737614FFE3C9001E91C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71DF738614FFE3C9001E91C0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71DF737714FFE3C9001E91C0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71DF734914FFE3C9001E91C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71DF736014FFE3C9001E91C0 /* main.m in Sources */,
+				71DF736414FFE3C9001E91C0 /* FWAppDelegate.m in Sources */,
+				71DF736D14FFE3C9001E91C0 /* Favowing.xcdatamodeld in Sources */,
+				71DF737014FFE3C9001E91C0 /* FWMasterViewController.m in Sources */,
+				71DF737314FFE3C9001E91C0 /* FWDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71DF737414FFE3C9001E91C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71DF738914FFE3C9001E91C0 /* FavowingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71DF738014FFE3C9001E91C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71DF734C14FFE3C9001E91C0 /* Favowing */;
+			targetProxy = 71DF737F14FFE3C9001E91C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		71DF735C14FFE3C9001E91C0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71DF735D14FFE3C9001E91C0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		71DF736514FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71DF736614FFE3C9001E91C0 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71DF736914FFE3C9001E91C0 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		71DF738414FFE3C9001E91C0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71DF738514FFE3C9001E91C0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		71DF738A14FFE3C9001E91C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		71DF738B14FFE3C9001E91C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		71DF738D14FFE3C9001E91C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Favowing/Favowing-Prefix.pch";
+				INFOPLIST_FILE = "Favowing/Favowing-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		71DF738E14FFE3C9001E91C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Favowing/Favowing-Prefix.pch";
+				INFOPLIST_FILE = "Favowing/Favowing-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		71DF739014FFE3C9001E91C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Favowing.app/Favowing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Favowing/Favowing-Prefix.pch";
+				INFOPLIST_FILE = "FavowingTests/FavowingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		71DF739114FFE3C9001E91C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Favowing.app/Favowing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Favowing/Favowing-Prefix.pch";
+				INFOPLIST_FILE = "FavowingTests/FavowingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71DF734714FFE3C9001E91C0 /* Build configuration list for PBXProject "Favowing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71DF738A14FFE3C9001E91C0 /* Debug */,
+				71DF738B14FFE3C9001E91C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71DF738C14FFE3C9001E91C0 /* Build configuration list for PBXNativeTarget "Favowing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71DF738D14FFE3C9001E91C0 /* Debug */,
+				71DF738E14FFE3C9001E91C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		71DF738F14FFE3C9001E91C0 /* Build configuration list for PBXNativeTarget "FavowingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71DF739014FFE3C9001E91C0 /* Debug */,
+				71DF739114FFE3C9001E91C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		71DF736B14FFE3C9001E91C0 /* Favowing.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				71DF736C14FFE3C9001E91C0 /* Favowing.xcdatamodel */,
+			);
+			currentVersion = 71DF736C14FFE3C9001E91C0 /* Favowing.xcdatamodel */;
+			path = Favowing.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 71DF734414FFE3C9001E91C0 /* Project object */;
+}
