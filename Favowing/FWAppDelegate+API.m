@@ -11,34 +11,48 @@
 
 #pragma mark - Authentication
 
-#define kFWClientKey 0
-#define kFWClientSecret 0
-#define kFWRedirect @""
+#define kFWClientKey @"39748626815d5841b6962200991ff5dc"
+#define kFWClientSecret @"5864912c87c2b7cdf3ae01cae48f13b9"
+#define kFWRedirect @"http://furious-stone-8299.herokuapp.com/callback.html"
 
 @interface FWAppDelegate (Authentication) <SCSoundCloudAPIAuthenticationDelegate>
 @end
 
 @implementation FWAppDelegate (Authentication)
 
+//- (void)soundCloudAPIPreparedAuthorizationURL:(NSURL *)authorizationURL;
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url;
 {
     return [[FWAppDelegate api] handleRedirectURL:url];
 }
 
-- (void)soundCloudAPIDidAuthenticate;
+- (void)soundCloudAPIDidAuthenticate
 {
-    // big cheers!! the user sucesfully signed in
+    NSLog(@"soundCloudAPIDidAuthenticate");
 }
 
-- (void)soundCloudAPIDidResetAuthentication;
+- (void)soundCloudAPIDidResetAuthentication
 {
-    // the user did signed off
+    NSLog(@"soundCloudAPIDidResetAuthentication");
 }
 
 - (void)soundCloudAPIDidFailToGetAccessTokenWithError:(NSError *)error;
 {
-    // inform your user and let him retry the authentication
+    NSLog(@"soundCloudAPIDidFailToGetAccessTokenWithError:(NSError *)error;");
 }
+
+#pragma mark - Login View Controller
+
+//- (void)soundCloudAPIWillDisplayLoginViewController:(SCLoginViewController *)soundCloudViewController
+//{
+//
+//}
+//
+//- (void)soundCloudAPIDisplayViewController:(UIViewController *)soundCloudViewController
+//{
+//    [self.rootViewController presentModalViewController:soundCloudViewController animated:YES];    
+//}
 
 @end
 

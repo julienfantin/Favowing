@@ -8,8 +8,10 @@
 
 #import "FWAppDelegate.h"
 
+#import "FWAppDelegate+API.h"
+
 #import "FWMasterViewController.h"
-#import "SCAPI.h"
+
 
 @implementation FWAppDelegate
 
@@ -20,7 +22,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
@@ -29,11 +30,14 @@
         UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
         FWMasterViewController *controller = (FWMasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
+        
     } else {
         UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
         FWMasterViewController *controller = (FWMasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    
+
     return YES;
 }
 							
@@ -65,6 +69,16 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    
+    /*
+     Check API Authentication
+     */
+    
+    SCSoundCloudAPI *api = [[self class] api];
+    if (api.isAuthenticated == NO) {
+        [api checkAuthentication];
+    }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

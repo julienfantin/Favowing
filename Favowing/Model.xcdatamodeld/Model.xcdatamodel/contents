@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Track">
+        <attribute name="id" attributeType="String" indexed="YES"/>
+        <relationship name="favoriters" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="favorites" inverseEntity="User"/>
+    </entity>
+    <entity name="User">
+        <attribute name="id" attributeType="String" indexed="YES"/>
+        <relationship name="favorites" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Track" inverseName="favoriters" inverseEntity="Track"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-207" positionY="-3" width="128" height="75"/>
+        <element name="Track" positionX="-36" positionY="99" width="128" height="75"/>
+    </elements>
+</model>
