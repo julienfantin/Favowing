@@ -12,4 +12,9 @@
 
 @property (strong, nonatomic) NSArray *favoriters;
 
+@property (readonly, nonatomic) NSString *artist;
+@property (readonly, nonatomic) NSString *title;
+@property (readonly, nonatomic) BOOL isUserFavorite;
+@property (readonly, nonatomic) BOOL isStreamable;
+
 @end

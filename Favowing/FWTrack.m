@@ -12,4 +12,24 @@
 
 @synthesize favoriters;
 
+- (NSString *)artist
+{
+    return [self valueForKeyPath:@"user.username"];
+}
+
+- (NSString *)title
+{
+    return [self valueForKeyPath:@"title"];
+}
+
+- (BOOL)isUserFavorite
+{
+    return [[self valueForKey:@"user_favorite"] boolValue];
+}
+
+- (BOOL)isStreamable
+{
+    return [[self valueForKey:@"streamable"] boolValue];    
+}
+
 @end

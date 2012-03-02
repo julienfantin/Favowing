@@ -6,8 +6,13 @@
 //  Copyright (c) 2012 C6. All rights reserved.
 //
 
-#import "FWObject.h"
+#import "FWAppDelegate+API.h"
+#import "FWUser.h"
 
-@interface FWFavortiesOperation : FWObject
+@interface FWFavortiesOperation : NSOperation <SCRequestContext>
+
+- (id)initWithUser:(FWUser *)aUser;
+
+@property (strong, nonatomic) FWUser *user;
 
 @end

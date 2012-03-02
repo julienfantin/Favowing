@@ -27,7 +27,8 @@
 
 - (void)soundCloudAPIDidAuthenticate
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));    
+    NSLog(@"%@", NSStringFromSelector(_cmd));   
+    
     
 //    [[[self class] api] performMethod:@"GET" onResource:@"/me/favorites" withParameters:nil context:nil userInfo:nil];
 }
@@ -87,11 +88,6 @@ static char kFWSCAPI;
 {
     NSLog(@"%@\n%@", NSStringFromSelector(_cmd), [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 //    [FWObject objectsWithData:data];
-}
-
-- (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didReceiveData:(NSData *)data context:(id)context userInfo:(id)userInfo
-{
-    
 }
 
 @end
