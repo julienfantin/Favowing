@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		711FF0361500F6EA00D2425F /* SoundCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 711FF0351500F6EA00D2425F /* SoundCloud.bundle */; };
+		711FF0721501064000D2425F /* FWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 711FF0711501064000D2425F /* FWObject.m */; };
+		711FF07815010D0A00D2425F /* TrackFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 711FF07715010D0A00D2425F /* TrackFixture.json */; };
 		7131B4C01500DD4100AB20FD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7131B4BE1500DD4100AB20FD /* Model.xcdatamodeld */; };
+		71AC268F150122E100B2B05B /* FavoritesFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 71AC268E150122E100B2B05B /* FavoritesFixture.json */; };
+		71AC2692150124CF00B2B05B /* FWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AC2691150124CF00B2B05B /* FWUser.m */; };
+		71AC2695150126B200B2B05B /* FWTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AC2694150126B200B2B05B /* FWTrack.m */; };
+		71AC269B15012F9B00B2B05B /* FWFavortiesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AC269A15012F9B00B2B05B /* FWFavortiesOperation.m */; };
 		71DF735214FFE3C9001E91C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735114FFE3C9001E91C0 /* UIKit.framework */; };
 		71DF735414FFE3C9001E91C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735314FFE3C9001E91C0 /* Foundation.framework */; };
 		71DF735614FFE3C9001E91C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735514FFE3C9001E91C0 /* CoreGraphics.framework */; };
@@ -26,7 +32,7 @@
 		71DF737D14FFE3C9001E91C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735314FFE3C9001E91C0 /* Foundation.framework */; };
 		71DF737E14FFE3C9001E91C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735714FFE3C9001E91C0 /* CoreData.framework */; };
 		71DF738614FFE3C9001E91C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71DF738414FFE3C9001E91C0 /* InfoPlist.strings */; };
-		71DF738914FFE3C9001E91C0 /* FavowingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF738814FFE3C9001E91C0 /* FavowingTests.m */; };
+		71DF738914FFE3C9001E91C0 /* FWObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF738814FFE3C9001E91C0 /* FWObjectTests.m */; };
 		71DF73AC14FFE479001E91C0 /* libOAuth2Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF73A814FFE479001E91C0 /* libOAuth2Client.a */; };
 		71DF73AD14FFE479001E91C0 /* libSoundCloudAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF73A914FFE479001E91C0 /* libSoundCloudAPI.a */; };
 		71DF73B114FFE4E4001E91C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF73B014FFE4E4001E91C0 /* Security.framework */; };
@@ -68,7 +74,17 @@
 /* Begin PBXFileReference section */
 		711FF0281500F34500D2425F /* SoundCloudAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCloudAPI.xcodeproj; path = SoundCloudAPI/SoundCloudAPI.xcodeproj; sourceTree = "<group>"; };
 		711FF0351500F6EA00D2425F /* SoundCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SoundCloud.bundle; sourceTree = "<group>"; };
+		711FF0701501064000D2425F /* FWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWObject.h; sourceTree = "<group>"; };
+		711FF0711501064000D2425F /* FWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWObject.m; sourceTree = "<group>"; };
+		711FF07715010D0A00D2425F /* TrackFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TrackFixture.json; sourceTree = "<group>"; };
 		7131B4BF1500DD4100AB20FD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		71AC268E150122E100B2B05B /* FavoritesFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FavoritesFixture.json; sourceTree = "<group>"; };
+		71AC2690150124CF00B2B05B /* FWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWUser.h; sourceTree = "<group>"; };
+		71AC2691150124CF00B2B05B /* FWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWUser.m; sourceTree = "<group>"; };
+		71AC2693150126B200B2B05B /* FWTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWTrack.h; sourceTree = "<group>"; };
+		71AC2694150126B200B2B05B /* FWTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWTrack.m; sourceTree = "<group>"; };
+		71AC269915012F9B00B2B05B /* FWFavortiesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWFavortiesOperation.h; sourceTree = "<group>"; };
+		71AC269A15012F9B00B2B05B /* FWFavortiesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWFavortiesOperation.m; sourceTree = "<group>"; };
 		71DF734D14FFE3C9001E91C0 /* Favowing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Favowing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DF735114FFE3C9001E91C0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		71DF735314FFE3C9001E91C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,8 +107,8 @@
 		71DF737A14FFE3C9001E91C0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		71DF738314FFE3C9001E91C0 /* FavowingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FavowingTests-Info.plist"; sourceTree = "<group>"; };
 		71DF738514FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		71DF738714FFE3C9001E91C0 /* FavowingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavowingTests.h; sourceTree = "<group>"; };
-		71DF738814FFE3C9001E91C0 /* FavowingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavowingTests.m; sourceTree = "<group>"; };
+		71DF738714FFE3C9001E91C0 /* FWObjectTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWObjectTests.h; sourceTree = "<group>"; };
+		71DF738814FFE3C9001E91C0 /* FWObjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWObjectTests.m; sourceTree = "<group>"; };
 		71DF73A814FFE479001E91C0 /* libOAuth2Client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOAuth2Client.a; path = "SoundCloudAPI/Outsourced/OAuth2Client/build/Release-iphoneos/libOAuth2Client.a"; sourceTree = "<group>"; };
 		71DF73A914FFE479001E91C0 /* libSoundCloudAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSoundCloudAPI.a; path = "SoundCloudAPI/build/Release-iphoneos/libSoundCloudAPI.a"; sourceTree = "<group>"; };
 		71DF73B014FFE4E4001E91C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -201,6 +217,14 @@
 				71DF735A14FFE3C9001E91C0 /* Supporting Files */,
 				71DF73B414FFE7C5001E91C0 /* FWAppDelegate+API.h */,
 				71DF73B514FFE7C5001E91C0 /* FWAppDelegate+API.m */,
+				711FF0701501064000D2425F /* FWObject.h */,
+				711FF0711501064000D2425F /* FWObject.m */,
+				71AC2690150124CF00B2B05B /* FWUser.h */,
+				71AC2691150124CF00B2B05B /* FWUser.m */,
+				71AC2693150126B200B2B05B /* FWTrack.h */,
+				71AC2694150126B200B2B05B /* FWTrack.m */,
+				71AC269915012F9B00B2B05B /* FWFavortiesOperation.h */,
+				71AC269A15012F9B00B2B05B /* FWFavortiesOperation.m */,
 			);
 			path = Favowing;
 			sourceTree = "<group>";
@@ -219,9 +243,11 @@
 		71DF738114FFE3C9001E91C0 /* FavowingTests */ = {
 			isa = PBXGroup;
 			children = (
-				71DF738714FFE3C9001E91C0 /* FavowingTests.h */,
-				71DF738814FFE3C9001E91C0 /* FavowingTests.m */,
+				71DF738714FFE3C9001E91C0 /* FWObjectTests.h */,
+				71DF738814FFE3C9001E91C0 /* FWObjectTests.m */,
 				71DF738214FFE3C9001E91C0 /* Supporting Files */,
+				711FF07715010D0A00D2425F /* TrackFixture.json */,
+				71AC268E150122E100B2B05B /* FavoritesFixture.json */,
 			);
 			path = FavowingTests;
 			sourceTree = "<group>";
@@ -334,6 +360,8 @@
 				71DF736714FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard in Resources */,
 				71DF736A14FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard in Resources */,
 				711FF0361500F6EA00D2425F /* SoundCloud.bundle in Resources */,
+				711FF07815010D0A00D2425F /* TrackFixture.json in Resources */,
+				71AC268F150122E100B2B05B /* FavoritesFixture.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +403,10 @@
 				71DF737314FFE3C9001E91C0 /* FWDetailViewController.m in Sources */,
 				71DF73B614FFE7C5001E91C0 /* FWAppDelegate+API.m in Sources */,
 				7131B4C01500DD4100AB20FD /* Model.xcdatamodeld in Sources */,
+				711FF0721501064000D2425F /* FWObject.m in Sources */,
+				71AC2692150124CF00B2B05B /* FWUser.m in Sources */,
+				71AC2695150126B200B2B05B /* FWTrack.m in Sources */,
+				71AC269B15012F9B00B2B05B /* FWFavortiesOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71DF738914FFE3C9001E91C0 /* FavowingTests.m in Sources */,
+				71DF738914FFE3C9001E91C0 /* FWObjectTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

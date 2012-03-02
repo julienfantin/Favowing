@@ -1,5 +1,5 @@
 //
-//  FavowingTests.h
+//  FWObjectTests.h
 //  FavowingTests
 //
 //  Created by Julien Fantin on 3/1/12.
@@ -7,7 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "FWObject.h"
 
-@interface FavowingTests : SenTestCase
+@interface FWObjectTests : SenTestCase
+
+@property (strong, nonatomic) FWObject *object;
 
 @end

@@ -20,16 +20,16 @@
 
 @implementation FWAppDelegate (Authentication)
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url;
-{
-    return [[FWAppDelegate api] handleRedirectURL:url];
-}
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url;
+//{
+//    return [[FWAppDelegate api] handleRedirectURL:url];
+//}
 
 - (void)soundCloudAPIDidAuthenticate
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));    
     
-    [[[self class] api] performMethod:@"GET" onResource:@"/me/favorites" withParameters:nil context:nil userInfo:nil];
+//    [[[self class] api] performMethod:@"GET" onResource:@"/me/favorites" withParameters:nil context:nil userInfo:nil];
 }
 
 - (void)soundCloudAPIDidResetAuthentication
@@ -82,14 +82,16 @@ static char kFWSCAPI;
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
+#import "FWObject.h"
 - (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFinishWithData:(NSData *)data context:(id)context userInfo:(id)userInfo
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%@\n%@", NSStringFromSelector(_cmd), [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//    [FWObject objectsWithData:data];
 }
 
 - (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didReceiveData:(NSData *)data context:(id)context userInfo:(id)userInfo
 {
-    NSLog(@"%@\n%@", NSStringFromSelector(_cmd), [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    
 }
 
 @end
