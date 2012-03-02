@@ -20,8 +20,6 @@
 
 @implementation FWAppDelegate (Authentication)
 
-//- (void)soundCloudAPIPreparedAuthorizationURL:(NSURL *)authorizationURL;
-
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url;
 {
     return [[FWAppDelegate api] handleRedirectURL:url];
@@ -29,30 +27,20 @@
 
 - (void)soundCloudAPIDidAuthenticate
 {
-    NSLog(@"soundCloudAPIDidAuthenticate");
+    NSLog(@"%@", NSStringFromSelector(_cmd));    
+    
+    [[[self class] api] performMethod:@"GET" onResource:@"/me/favorites" withParameters:nil context:nil userInfo:nil];
 }
 
 - (void)soundCloudAPIDidResetAuthentication
 {
-    NSLog(@"soundCloudAPIDidResetAuthentication");
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 - (void)soundCloudAPIDidFailToGetAccessTokenWithError:(NSError *)error;
 {
-    NSLog(@"soundCloudAPIDidFailToGetAccessTokenWithError:(NSError *)error;");
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
-
-#pragma mark - Login View Controller
-
-//- (void)soundCloudAPIWillDisplayLoginViewController:(SCLoginViewController *)soundCloudViewController
-//{
-//
-//}
-//
-//- (void)soundCloudAPIDisplayViewController:(UIViewController *)soundCloudViewController
-//{
-//    [self.rootViewController presentModalViewController:soundCloudViewController animated:YES];    
-//}
 
 @end
 
@@ -87,6 +75,21 @@ static char kFWSCAPI;
         
         return api;
     }
+}
+
+- (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFailWithError:(NSError *)error context:(id)context userInfo:(id)userInfo
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFinishWithData:(NSData *)data context:(id)context userInfo:(id)userInfo
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didReceiveData:(NSData *)data context:(id)context userInfo:(id)userInfo
+{
+    NSLog(@"%@\n%@", NSStringFromSelector(_cmd), [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
 @end
