@@ -25,6 +25,11 @@
 		71DF737E14FFE3C9001E91C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735714FFE3C9001E91C0 /* CoreData.framework */; };
 		71DF738614FFE3C9001E91C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71DF738414FFE3C9001E91C0 /* InfoPlist.strings */; };
 		71DF738914FFE3C9001E91C0 /* FavowingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF738814FFE3C9001E91C0 /* FavowingTests.m */; };
+		71DF73AC14FFE479001E91C0 /* libOAuth2Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF73A814FFE479001E91C0 /* libOAuth2Client.a */; };
+		71DF73AD14FFE479001E91C0 /* libSoundCloudAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF73A914FFE479001E91C0 /* libSoundCloudAPI.a */; };
+		71DF73B114FFE4E4001E91C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF73B014FFE4E4001E91C0 /* Security.framework */; };
+		71DF73B314FFE4EC001E91C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF73B214FFE4EC001E91C0 /* AudioToolbox.framework */; };
+		71DF73B614FFE7C5001E91C0 /* FWAppDelegate+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF73B514FFE7C5001E91C0 /* FWAppDelegate+API.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,25 +48,31 @@
 		71DF735314FFE3C9001E91C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		71DF735514FFE3C9001E91C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		71DF735714FFE3C9001E91C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		71DF735B14FFE3C9001E91C0 /* Favowing-Info.plist */ = {isa = PBXFileReference; path = "Favowing-Info.plist"; sourceTree = "<group>"; };
+		71DF735B14FFE3C9001E91C0 /* Favowing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Favowing-Info.plist"; sourceTree = "<group>"; };
 		71DF735D14FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		71DF735F14FFE3C9001E91C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		71DF736114FFE3C9001E91C0 /* Favowing-Prefix.pch */ = {isa = PBXFileReference; path = "Favowing-Prefix.pch"; sourceTree = "<group>"; };
-		71DF736214FFE3C9001E91C0 /* FWAppDelegate.h */ = {isa = PBXFileReference; path = FWAppDelegate.h; sourceTree = "<group>"; };
+		71DF736114FFE3C9001E91C0 /* Favowing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Favowing-Prefix.pch"; sourceTree = "<group>"; };
+		71DF736214FFE3C9001E91C0 /* FWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWAppDelegate.h; sourceTree = "<group>"; };
 		71DF736314FFE3C9001E91C0 /* FWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWAppDelegate.m; sourceTree = "<group>"; };
 		71DF736614FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		71DF736914FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		71DF736C14FFE3C9001E91C0 /* Favowing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favowing.xcdatamodel; sourceTree = "<group>"; };
-		71DF736E14FFE3C9001E91C0 /* FWMasterViewController.h */ = {isa = PBXFileReference; path = FWMasterViewController.h; sourceTree = "<group>"; };
+		71DF736E14FFE3C9001E91C0 /* FWMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWMasterViewController.h; sourceTree = "<group>"; };
 		71DF736F14FFE3C9001E91C0 /* FWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWMasterViewController.m; sourceTree = "<group>"; };
-		71DF737114FFE3C9001E91C0 /* FWDetailViewController.h */ = {isa = PBXFileReference; path = FWDetailViewController.h; sourceTree = "<group>"; };
+		71DF737114FFE3C9001E91C0 /* FWDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWDetailViewController.h; sourceTree = "<group>"; };
 		71DF737214FFE3C9001E91C0 /* FWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWDetailViewController.m; sourceTree = "<group>"; };
 		71DF737914FFE3C9001E91C0 /* FavowingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavowingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DF737A14FFE3C9001E91C0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		71DF738314FFE3C9001E91C0 /* FavowingTests-Info.plist */ = {isa = PBXFileReference; path = "FavowingTests-Info.plist"; sourceTree = "<group>"; };
+		71DF738314FFE3C9001E91C0 /* FavowingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FavowingTests-Info.plist"; sourceTree = "<group>"; };
 		71DF738514FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		71DF738714FFE3C9001E91C0 /* FavowingTests.h */ = {isa = PBXFileReference; path = FavowingTests.h; sourceTree = "<group>"; };
+		71DF738714FFE3C9001E91C0 /* FavowingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavowingTests.h; sourceTree = "<group>"; };
 		71DF738814FFE3C9001E91C0 /* FavowingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavowingTests.m; sourceTree = "<group>"; };
+		71DF73A814FFE479001E91C0 /* libOAuth2Client.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libOAuth2Client.a; path = "SoundCloudAPI/Outsourced/OAuth2Client/build/Release-iphoneos/libOAuth2Client.a"; sourceTree = "<group>"; };
+		71DF73A914FFE479001E91C0 /* libSoundCloudAPI.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libSoundCloudAPI.a; path = "SoundCloudAPI/build/Release-iphoneos/libSoundCloudAPI.a"; sourceTree = "<group>"; };
+		71DF73B014FFE4E4001E91C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		71DF73B214FFE4EC001E91C0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		71DF73B414FFE7C5001E91C0 /* FWAppDelegate+API.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "FWAppDelegate+API.h"; sourceTree = "<group>"; };
+		71DF73B514FFE7C5001E91C0 /* FWAppDelegate+API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FWAppDelegate+API.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71DF73B314FFE4EC001E91C0 /* AudioToolbox.framework in Frameworks */,
+				71DF73B114FFE4E4001E91C0 /* Security.framework in Frameworks */,
+				71DF73AC14FFE479001E91C0 /* libOAuth2Client.a in Frameworks */,
+				71DF73AD14FFE479001E91C0 /* libSoundCloudAPI.a in Frameworks */,
 				71DF735214FFE3C9001E91C0 /* UIKit.framework in Frameworks */,
 				71DF735414FFE3C9001E91C0 /* Foundation.framework in Frameworks */,
 				71DF735614FFE3C9001E91C0 /* CoreGraphics.framework in Frameworks */,
@@ -93,6 +108,10 @@
 		71DF734214FFE3C9001E91C0 = {
 			isa = PBXGroup;
 			children = (
+				71DF73B214FFE4EC001E91C0 /* AudioToolbox.framework */,
+				71DF73B014FFE4E4001E91C0 /* Security.framework */,
+				71DF73A814FFE479001E91C0 /* libOAuth2Client.a */,
+				71DF73A914FFE479001E91C0 /* libSoundCloudAPI.a */,
 				71DF735914FFE3C9001E91C0 /* Favowing */,
 				71DF738114FFE3C9001E91C0 /* FavowingTests */,
 				71DF735014FFE3C9001E91C0 /* Frameworks */,
@@ -134,6 +153,8 @@
 				71DF737214FFE3C9001E91C0 /* FWDetailViewController.m */,
 				71DF736B14FFE3C9001E91C0 /* Favowing.xcdatamodeld */,
 				71DF735A14FFE3C9001E91C0 /* Supporting Files */,
+				71DF73B414FFE7C5001E91C0 /* FWAppDelegate+API.h */,
+				71DF73B514FFE7C5001E91C0 /* FWAppDelegate+API.m */,
 			);
 			path = Favowing;
 			sourceTree = "<group>";
@@ -281,6 +302,7 @@
 				71DF736D14FFE3C9001E91C0 /* Favowing.xcdatamodeld in Sources */,
 				71DF737014FFE3C9001E91C0 /* FWMasterViewController.m in Sources */,
 				71DF737314FFE3C9001E91C0 /* FWDetailViewController.m in Sources */,
+				71DF73B614FFE7C5001E91C0 /* FWAppDelegate+API.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +380,12 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "SoundCloudAPI/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -377,8 +404,13 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "SoundCloudAPI/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

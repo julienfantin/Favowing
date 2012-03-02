@@ -9,6 +9,7 @@
 #import "FWAppDelegate.h"
 
 #import "FWMasterViewController.h"
+#import "SCAPI.h"
 
 @implementation FWAppDelegate
 
