@@ -7,16 +7,18 @@
 //
 
 #import "FWObject.h"
+#import "FWUser.h"
 #import "SCAPI.h"
 
 @interface FWTrack : FWObject
 
 @property (strong, nonatomic) NSArray *favoriters;
 
-@property (readonly, nonatomic) NSString *artist;
 @property (readonly, nonatomic) NSString *title;
 @property (readonly, nonatomic) BOOL isUserFavorite;
 @property (readonly, nonatomic) BOOL isStreamable;
 @property (readonly, nonatomic) SCAudioStream *audioStream;
+
+@property (readonly, strong, nonatomic) FWUser *user;
 
 @end

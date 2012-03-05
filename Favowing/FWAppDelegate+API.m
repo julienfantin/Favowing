@@ -20,20 +20,11 @@
 
 @implementation FWAppDelegate (Authentication)
 
-//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url;
-//{
-//    return [[FWAppDelegate api] handleRedirectURL:url];
-//}
-
-#import "FWFavortiesOperation.h"
 - (void)soundCloudAPIDidAuthenticate
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));   
-        
-    FWFavortiesOperation *op = [[FWFavortiesOperation alloc] initWithUser:[[FWUser alloc] init]];
-    [[NSOperationQueue mainQueue] addOperation:op];
+    NSLog(@"%@", NSStringFromSelector(_cmd)); 
     
-//    [[[self class] api] performMethod:@"GET" onResource:@"/me/favorites" withParameters:nil context:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSoundCloudAPIDidAuthenticateNotification object:nil];
 }
 
 - (void)soundCloudAPIDidResetAuthentication
@@ -48,9 +39,10 @@
 
 @end
 
-static char kFWSCAPI;
 
 @implementation FWAppDelegate (API)
+
+static char kFWSCAPI;
 
 + (SCSoundCloudAPI *)api
 {
@@ -81,22 +73,24 @@ static char kFWSCAPI;
     }
 }
 
-- (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFailWithError:(NSError *)error context:(id)context userInfo:(id)userInfo
-{
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-}
+#pragma mark - API callbacks
 
-#import "FWObject.h"
 - (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFinishWithData:(NSData *)data context:(id)context userInfo:(id)userInfo
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
     if ([context conformsToProtocol:@protocol(SCRequestContext)]) {
-        [(id<SCRequestContext>)context requestDidFinishWithData:data];
+        [(id<SCRequestContext>)context apiRequestDidFinishWithData:data];
     }
-    
-//    [FWObject objectsWithData:data];
+}
+
+- (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFailWithError:(NSError *)error context:(id)context userInfo:(id)userInfo
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
+    if ([context conformsToProtocol:@protocol(SCRequestContext)]) {
+        [(id<SCRequestContext>)context apiRequestDidFailWithError:error];
+    }
 }
 
 @end
-

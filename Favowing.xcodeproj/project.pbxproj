@@ -11,10 +11,15 @@
 		711FF0721501064000D2425F /* FWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 711FF0711501064000D2425F /* FWObject.m */; };
 		711FF07815010D0A00D2425F /* TrackFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 711FF07715010D0A00D2425F /* TrackFixture.json */; };
 		7131B4C01500DD4100AB20FD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7131B4BE1500DD4100AB20FD /* Model.xcdatamodeld */; };
+		71454A941504FF26007E0E1C /* FWTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71454A931504FF26007E0E1C /* FWTrackCell.xib */; };
+		71454A9715051B3A007E0E1C /* FWFollowingsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71454A9615051B3A007E0E1C /* FWFollowingsOperation.m */; };
+		71A5355B1504C44800097DE4 /* FWOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A5355A1504C44800097DE4 /* FWOperation.m */; };
+		71A5355E1504C54A00097DE4 /* FWFavoritersOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A5355D1504C54A00097DE4 /* FWFavoritersOperation.m */; };
+		71A535611504CACC00097DE4 /* FWRecommendationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A535601504CACC00097DE4 /* FWRecommendationOperation.m */; };
 		71AC268F150122E100B2B05B /* FavoritesFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 71AC268E150122E100B2B05B /* FavoritesFixture.json */; };
 		71AC2692150124CF00B2B05B /* FWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AC2691150124CF00B2B05B /* FWUser.m */; };
 		71AC2695150126B200B2B05B /* FWTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AC2694150126B200B2B05B /* FWTrack.m */; };
-		71AC269B15012F9B00B2B05B /* FWFavortiesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AC269A15012F9B00B2B05B /* FWFavortiesOperation.m */; };
+		71AC269B15012F9B00B2B05B /* FWFavoritesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AC269A15012F9B00B2B05B /* FWFavoritesOperation.m */; };
 		71DF735214FFE3C9001E91C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735114FFE3C9001E91C0 /* UIKit.framework */; };
 		71DF735414FFE3C9001E91C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735314FFE3C9001E91C0 /* Foundation.framework */; };
 		71DF735614FFE3C9001E91C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735514FFE3C9001E91C0 /* CoreGraphics.framework */; };
@@ -25,8 +30,8 @@
 		71DF736714FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DF736514FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard */; };
 		71DF736A14FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */; };
 		71DF736D14FFE3C9001E91C0 /* Favowing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736B14FFE3C9001E91C0 /* Favowing.xcdatamodeld */; };
-		71DF737014FFE3C9001E91C0 /* FWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736F14FFE3C9001E91C0 /* FWMasterViewController.m */; };
-		71DF737314FFE3C9001E91C0 /* FWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF737214FFE3C9001E91C0 /* FWDetailViewController.m */; };
+		71DF737014FFE3C9001E91C0 /* FWFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736F14FFE3C9001E91C0 /* FWFavoritesViewController.m */; };
+		71DF737314FFE3C9001E91C0 /* FWRecommendationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF737214FFE3C9001E91C0 /* FWRecommendationViewController.m */; };
 		71DF737B14FFE3C9001E91C0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF737A14FFE3C9001E91C0 /* SenTestingKit.framework */; };
 		71DF737C14FFE3C9001E91C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735114FFE3C9001E91C0 /* UIKit.framework */; };
 		71DF737D14FFE3C9001E91C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71DF735314FFE3C9001E91C0 /* Foundation.framework */; };
@@ -78,13 +83,22 @@
 		711FF0711501064000D2425F /* FWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWObject.m; sourceTree = "<group>"; };
 		711FF07715010D0A00D2425F /* TrackFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TrackFixture.json; sourceTree = "<group>"; };
 		7131B4BF1500DD4100AB20FD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		71454A931504FF26007E0E1C /* FWTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FWTrackCell.xib; sourceTree = "<group>"; };
+		71454A9515051B39007E0E1C /* FWFollowingsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWFollowingsOperation.h; sourceTree = "<group>"; };
+		71454A9615051B3A007E0E1C /* FWFollowingsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWFollowingsOperation.m; sourceTree = "<group>"; };
+		71A535591504C44800097DE4 /* FWOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWOperation.h; sourceTree = "<group>"; };
+		71A5355A1504C44800097DE4 /* FWOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWOperation.m; sourceTree = "<group>"; };
+		71A5355C1504C54A00097DE4 /* FWFavoritersOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWFavoritersOperation.h; sourceTree = "<group>"; };
+		71A5355D1504C54A00097DE4 /* FWFavoritersOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWFavoritersOperation.m; sourceTree = "<group>"; };
+		71A5355F1504CACC00097DE4 /* FWRecommendationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWRecommendationOperation.h; sourceTree = "<group>"; };
+		71A535601504CACC00097DE4 /* FWRecommendationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWRecommendationOperation.m; sourceTree = "<group>"; };
 		71AC268E150122E100B2B05B /* FavoritesFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FavoritesFixture.json; sourceTree = "<group>"; };
 		71AC2690150124CF00B2B05B /* FWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWUser.h; sourceTree = "<group>"; };
 		71AC2691150124CF00B2B05B /* FWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWUser.m; sourceTree = "<group>"; };
 		71AC2693150126B200B2B05B /* FWTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWTrack.h; sourceTree = "<group>"; };
 		71AC2694150126B200B2B05B /* FWTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWTrack.m; sourceTree = "<group>"; };
-		71AC269915012F9B00B2B05B /* FWFavortiesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWFavortiesOperation.h; sourceTree = "<group>"; };
-		71AC269A15012F9B00B2B05B /* FWFavortiesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWFavortiesOperation.m; sourceTree = "<group>"; };
+		71AC269915012F9B00B2B05B /* FWFavoritesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWFavoritesOperation.h; sourceTree = "<group>"; };
+		71AC269A15012F9B00B2B05B /* FWFavoritesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWFavoritesOperation.m; sourceTree = "<group>"; };
 		71DF734D14FFE3C9001E91C0 /* Favowing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Favowing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DF735114FFE3C9001E91C0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		71DF735314FFE3C9001E91C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,10 +113,10 @@
 		71DF736614FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		71DF736914FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		71DF736C14FFE3C9001E91C0 /* Favowing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favowing.xcdatamodel; sourceTree = "<group>"; };
-		71DF736E14FFE3C9001E91C0 /* FWMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWMasterViewController.h; sourceTree = "<group>"; };
-		71DF736F14FFE3C9001E91C0 /* FWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWMasterViewController.m; sourceTree = "<group>"; };
-		71DF737114FFE3C9001E91C0 /* FWDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWDetailViewController.h; sourceTree = "<group>"; };
-		71DF737214FFE3C9001E91C0 /* FWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWDetailViewController.m; sourceTree = "<group>"; };
+		71DF736E14FFE3C9001E91C0 /* FWFavoritesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWFavoritesViewController.h; sourceTree = "<group>"; };
+		71DF736F14FFE3C9001E91C0 /* FWFavoritesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWFavoritesViewController.m; sourceTree = "<group>"; };
+		71DF737114FFE3C9001E91C0 /* FWRecommendationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWRecommendationViewController.h; sourceTree = "<group>"; };
+		71DF737214FFE3C9001E91C0 /* FWRecommendationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWRecommendationViewController.m; sourceTree = "<group>"; };
 		71DF737914FFE3C9001E91C0 /* FavowingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavowingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DF737A14FFE3C9001E91C0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		71DF738314FFE3C9001E91C0 /* FavowingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FavowingTests-Info.plist"; sourceTree = "<group>"; };
@@ -208,10 +222,10 @@
 				71DF736314FFE3C9001E91C0 /* FWAppDelegate.m */,
 				71DF736514FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard */,
 				71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */,
-				71DF736E14FFE3C9001E91C0 /* FWMasterViewController.h */,
-				71DF736F14FFE3C9001E91C0 /* FWMasterViewController.m */,
-				71DF737114FFE3C9001E91C0 /* FWDetailViewController.h */,
-				71DF737214FFE3C9001E91C0 /* FWDetailViewController.m */,
+				71DF736E14FFE3C9001E91C0 /* FWFavoritesViewController.h */,
+				71DF736F14FFE3C9001E91C0 /* FWFavoritesViewController.m */,
+				71DF737114FFE3C9001E91C0 /* FWRecommendationViewController.h */,
+				71DF737214FFE3C9001E91C0 /* FWRecommendationViewController.m */,
 				71DF736B14FFE3C9001E91C0 /* Favowing.xcdatamodeld */,
 				711FF0341500F6D300D2425F /* Resources */,
 				71DF735A14FFE3C9001E91C0 /* Supporting Files */,
@@ -223,8 +237,17 @@
 				71AC2691150124CF00B2B05B /* FWUser.m */,
 				71AC2693150126B200B2B05B /* FWTrack.h */,
 				71AC2694150126B200B2B05B /* FWTrack.m */,
-				71AC269915012F9B00B2B05B /* FWFavortiesOperation.h */,
-				71AC269A15012F9B00B2B05B /* FWFavortiesOperation.m */,
+				71A535591504C44800097DE4 /* FWOperation.h */,
+				71A5355A1504C44800097DE4 /* FWOperation.m */,
+				71454A9515051B39007E0E1C /* FWFollowingsOperation.h */,
+				71454A9615051B3A007E0E1C /* FWFollowingsOperation.m */,
+				71AC269915012F9B00B2B05B /* FWFavoritesOperation.h */,
+				71AC269A15012F9B00B2B05B /* FWFavoritesOperation.m */,
+				71A5355C1504C54A00097DE4 /* FWFavoritersOperation.h */,
+				71A5355D1504C54A00097DE4 /* FWFavoritersOperation.m */,
+				71A5355F1504CACC00097DE4 /* FWRecommendationOperation.h */,
+				71A535601504CACC00097DE4 /* FWRecommendationOperation.m */,
+				71454A931504FF26007E0E1C /* FWTrackCell.xib */,
 			);
 			path = Favowing;
 			sourceTree = "<group>";
@@ -362,6 +385,7 @@
 				711FF0361500F6EA00D2425F /* SoundCloud.bundle in Resources */,
 				711FF07815010D0A00D2425F /* TrackFixture.json in Resources */,
 				71AC268F150122E100B2B05B /* FavoritesFixture.json in Resources */,
+				71454A941504FF26007E0E1C /* FWTrackCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,14 +423,18 @@
 				71DF736014FFE3C9001E91C0 /* main.m in Sources */,
 				71DF736414FFE3C9001E91C0 /* FWAppDelegate.m in Sources */,
 				71DF736D14FFE3C9001E91C0 /* Favowing.xcdatamodeld in Sources */,
-				71DF737014FFE3C9001E91C0 /* FWMasterViewController.m in Sources */,
-				71DF737314FFE3C9001E91C0 /* FWDetailViewController.m in Sources */,
+				71DF737014FFE3C9001E91C0 /* FWFavoritesViewController.m in Sources */,
+				71DF737314FFE3C9001E91C0 /* FWRecommendationViewController.m in Sources */,
 				71DF73B614FFE7C5001E91C0 /* FWAppDelegate+API.m in Sources */,
 				7131B4C01500DD4100AB20FD /* Model.xcdatamodeld in Sources */,
 				711FF0721501064000D2425F /* FWObject.m in Sources */,
 				71AC2692150124CF00B2B05B /* FWUser.m in Sources */,
 				71AC2695150126B200B2B05B /* FWTrack.m in Sources */,
-				71AC269B15012F9B00B2B05B /* FWFavortiesOperation.m in Sources */,
+				71AC269B15012F9B00B2B05B /* FWFavoritesOperation.m in Sources */,
+				71A5355B1504C44800097DE4 /* FWOperation.m in Sources */,
+				71A5355E1504C54A00097DE4 /* FWFavoritersOperation.m in Sources */,
+				71A535611504CACC00097DE4 /* FWRecommendationOperation.m in Sources */,
+				71454A9715051B3A007E0E1C /* FWFollowingsOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,10 +13,17 @@
 @implementation FWTrack
 
 @synthesize favoriters;
+@synthesize user = _user;
 
-- (NSString *)artist
+- (FWUser *)user
 {
-    return [self valueForKeyPath:@"user.username"];
+    if (_user != nil) {
+        return _user;
+    }
+    
+    NSDictionary *userDict = [self valueForKey:@"user"];
+    _user = [[FWUser alloc] initWithDictionary:userDict];
+    return _user;
 }
 
 - (NSString *)title

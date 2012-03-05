@@ -10,8 +10,7 @@
 
 #import "FWAppDelegate+API.h"
 
-#import "FWMasterViewController.h"
-
+#import "FWFavoritesViewController.h"
 
 @implementation FWAppDelegate
 
@@ -19,25 +18,54 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize queue = _queue;
+@synthesize user = _user;
+
+- (NSOperationQueue *)queue
+{
+    if (_queue != nil) {
+        return _queue;
+    }
+    _queue = [[NSOperationQueue alloc] init];
+    return _queue;
+}
+
+- (FWUser *)user
+{
+    if (_user != nil) {
+        return _user;
+    }
+    _user = [[FWUser alloc] init];
+    return _user;
+}
+
++ (FWUser *)user
+{
+    FWAppDelegate *app = (FWAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    return app.user;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    FWFavoritesViewController *controller;
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
         
         UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-        FWMasterViewController *controller = (FWMasterViewController *)masterNavigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
+        controller = (FWFavoritesViewController *)masterNavigationController.topViewController;
         
     } else {
         UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        FWMasterViewController *controller = (FWMasterViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
+        controller = (FWFavoritesViewController *)navigationController.topViewController;
     }
-    
 
+    controller.user = self.user;
+    controller.queue = self.queue;
+    
     return YES;
 }
 							

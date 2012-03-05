@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FWUser.h"
 
 @interface FWAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,6 +16,10 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (strong, nonatomic) NSOperationQueue *queue;
+@property (strong, nonatomic) FWUser *user;
+
++ (FWUser *)user;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

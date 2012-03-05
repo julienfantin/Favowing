@@ -9,12 +9,12 @@
 #import "FWObject.h"
 
 @interface FWObject ()
-@property (strong, nonatomic) NSDictionary *data;
+@property (strong, nonatomic) NSDictionary *dictionary;
 @end
 
 @implementation FWObject
 
-@synthesize data;
+@synthesize dictionary = _dictionary;
 
 + (id)objectsWithData:(NSData *)data
 {
@@ -41,39 +41,67 @@
     self = [[self class] alloc];
     
     if (self) {
-        self.data = dictionary;
+        self.dictionary = dictionary;
     }
     
     return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    FWObject *copy = [[[self class] allocWithZone:zone] initWithDictionary:self.dictionary];
+    return copy;
+}
+
+#pragma mark - Identity
+
+- (BOOL)isEqual:(id)object
+{
+    if ([object isKindOfClass:[FWObject class]] == NO) {
+        return NO;
+    }
+
+    // Ref comparison
+    if (self == object) {
+        return YES;
+    }
+    
+    // UID comparison
+    return [self.uid isEqual:[(FWObject *)object uid]];
+}
+
+- (NSUInteger)hash
+{
+    return self.dictionary.hash;
 }
 
 #pragma mark - KVC
 
 - (id)valueForKey:(NSString *)key
 {
-    return [self.data valueForKey:key];
+    return [self.dictionary valueForKey:key];
 }
 
 - (id)valueForKeyPath:(NSString *)keyPath
 {
-    return [self.data valueForKeyPath:keyPath];
+    return [self.dictionary valueForKeyPath:keyPath];
 }
 
 - (id)valueForUndefinedKey:(NSString *)key
 {
-    return [self.data objectForKey:key];
+    return [self.dictionary objectForKey:key];
 }
 
 #pragma mark - Properties
 
 - (NSNumber *)uid
 {
-    return [self.data objectForKey:@"id"];
+    return [self.dictionary objectForKey:@"id"];
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@\n%@", [super description], self.data];
+    return [NSString stringWithFormat:@"%@\n%@", [super description], self.dictionary];
 }
 
 @end

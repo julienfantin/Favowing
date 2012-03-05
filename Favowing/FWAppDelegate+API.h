@@ -10,9 +10,14 @@
 #import "SCAPI.h"
 
 @protocol SCRequestContext <NSObject>
+- (void)apiRequestDidFinishWithData:(NSData *)data;
+- (void)apiRequestDidFailWithError:(NSError *)error;
+
 - (void)requestDidFinishWithData:(NSData *)data;
 - (void)requestDidFailWithError:(NSError *)error;
 @end
+
+#define kSoundCloudAPIDidAuthenticateNotification @"kSoundCloudAPIDidAuthenticateNotification"
 
 @interface FWAppDelegate (API) <SCSoundCloudAPIDelegate>
 + (SCSoundCloudAPI *)api;

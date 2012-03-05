@@ -6,16 +6,12 @@
 //  Copyright (c) 2012 C6. All rights reserved.
 //
 
-#import "FWAppDelegate+API.h"
+#import "FWOperation.h"
 #import "FWUser.h"
 
-@interface FWFavortiesOperation : NSOperation <SCRequestContext>
-{
-    BOOL executing;
-    BOOL finished;
-}
-- (id)initWithUser:(FWUser *)aUser;
+@interface FWFavoritesOperation : FWOperation
 
+- (id)initWithUser:(FWUser *)aUser;
 @property (strong, nonatomic) FWUser *user;
 
 @end

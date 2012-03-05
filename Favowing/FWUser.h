@@ -11,5 +11,9 @@
 @interface FWUser : FWObject
 
 @property (strong, nonatomic) NSArray *favorites;
+@property (strong, nonatomic) NSArray *followings;
+@property (readonly, nonatomic) NSString *name;
+- (NSNumber *)similarityScoreWithOtherUser:(FWUser *)other;
+- (NSArray *)favoritesDifferentFromUser:(FWUser *)other;
 
 @end
