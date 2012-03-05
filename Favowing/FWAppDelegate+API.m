@@ -25,10 +25,13 @@
 //    return [[FWAppDelegate api] handleRedirectURL:url];
 //}
 
+#import "FWFavortiesOperation.h"
 - (void)soundCloudAPIDidAuthenticate
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));   
-    
+        
+    FWFavortiesOperation *op = [[FWFavortiesOperation alloc] initWithUser:[[FWUser alloc] init]];
+    [[NSOperationQueue mainQueue] addOperation:op];
     
 //    [[[self class] api] performMethod:@"GET" onResource:@"/me/favorites" withParameters:nil context:nil userInfo:nil];
 }
@@ -86,7 +89,12 @@ static char kFWSCAPI;
 #import "FWObject.h"
 - (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFinishWithData:(NSData *)data context:(id)context userInfo:(id)userInfo
 {
-    NSLog(@"%@\n%@", NSStringFromSelector(_cmd), [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    if ([context conformsToProtocol:@protocol(SCRequestContext)]) {
+        [(id<SCRequestContext>)context requestDidFinishWithData:data];
+    }
+    
 //    [FWObject objectsWithData:data];
 }
 

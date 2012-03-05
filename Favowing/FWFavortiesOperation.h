@@ -10,7 +10,10 @@
 #import "FWUser.h"
 
 @interface FWFavortiesOperation : NSOperation <SCRequestContext>
-
+{
+    BOOL executing;
+    BOOL finished;
+}
 - (id)initWithUser:(FWUser *)aUser;
 
 @property (strong, nonatomic) FWUser *user;

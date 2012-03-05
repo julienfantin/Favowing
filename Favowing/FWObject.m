@@ -49,6 +49,16 @@
 
 #pragma mark - KVC
 
+- (id)valueForKey:(NSString *)key
+{
+    return [self.data valueForKey:key];
+}
+
+- (id)valueForKeyPath:(NSString *)keyPath
+{
+    return [self.data valueForKeyPath:keyPath];
+}
+
 - (id)valueForUndefinedKey:(NSString *)key
 {
     return [self.data objectForKey:key];
@@ -59,6 +69,11 @@
 - (NSNumber *)uid
 {
     return [self.data objectForKey:@"id"];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@\n%@", [super description], self.data];
 }
 
 @end

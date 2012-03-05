@@ -1,3 +1,4 @@
+
 //
 //  FWTrack.m
 //  Favowing
@@ -7,6 +8,7 @@
 //
 
 #import "FWTrack.h"
+#import "FWAppDelegate+API.h"
 
 @implementation FWTrack
 
@@ -30,6 +32,13 @@
 - (BOOL)isStreamable
 {
     return [[self valueForKey:@"streamable"] boolValue];    
+}
+
+- (SCAudioStream *)audioStream
+{
+    NSString *stringURL = [self valueForKeyPath:@"stream_url"];
+    NSURL *URL = [NSURL URLWithString:stringURL];    
+    return [[FWAppDelegate api] audioStreamWithURL:URL];
 }
 
 @end
