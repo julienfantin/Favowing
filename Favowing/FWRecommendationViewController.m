@@ -10,10 +10,10 @@
 #import "FWRecommendationOperation.h"
 
 @interface FWRecommendationViewController ()
+@property (strong, nonatomic) FWTrack *track;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-@property (strong, nonatomic) NSArray *recommendations;
-@property (nonatomic) NSUInteger shownPages;
+@property (strong, nonatomic) NSMutableSet *recommendedTracks;
+- (void)configureView;
 @end
 
 @implementation FWRecommendationViewController
@@ -21,16 +21,20 @@
 @synthesize user = _user;
 @synthesize track = _track;
 @synthesize queue;
-@synthesize recommendations;
 @synthesize masterPopoverController = _masterPopoverController;
-@synthesize shownPages;
+@synthesize recommendedTracks;
+@synthesize likeButton;
+@synthesize followButton;
+@synthesize imageView;
+@synthesize artistLabel;
+@synthesize trackLabel;
+@synthesize descriptionLabel;
 
 #pragma mark - Managing the detail item
 
 - (void)awakeFromNib
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.clearsSelectionOnViewWillAppear = NO;
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
     [super awakeFromNib];
@@ -41,13 +45,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.shownPages = 1;
-
-    self.title = @"You may also like";
+    
+    self.title = @"Recommendations";
+    
     FWRecommendationOperation *operation = [[FWRecommendationOperation alloc] initWithTrack:self.track andUser:self.user];
     operation.delegate = self;
     [self.queue addOperation:operation];
+}
+
+- (void)viewDidUnload {
+    [self setLikeButton:nil];
+    [self setFollowButton:nil];
+    [self setImageView:nil];
+    [self setArtistLabel:nil];
+    [self setTrackLabel:nil];
+    [self setDescriptionLabel:nil];
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -86,45 +99,29 @@
 - (void)operationDidFinish:(FWOperation *)operation
 {
     if ([operation isKindOfClass:[FWRecommendationOperation class]]) {
-        self.recommendations = [(FWRecommendationOperation *)operation recommendations];
+        self.user.recommendations = [(FWRecommendationOperation *)operation recommendations];
     }
     
-    [self.tableView reloadData];
+    [self configureView];
 }
 
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)configureView
 {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return (NSInteger)MIN(self.shownPages * kFWRecommendationPageCount, self.recommendations.count);
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    [self configureCell:cell atIndexPath:indexPath];
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.shownPages * kFWRecommendationPageCount == indexPath.row + 1) {
-        self.shownPages++;
-        [self.tableView reloadData];
+    if (self.track != nil) {
+        [self.recommendedTracks addObject:self.track];
+        [self.track.audioStream pause];
     }
-}
+    
+    // Filter out the tracks we've already recommended
+    NSMutableSet *tracks = [NSMutableSet setWithArray:self.user.recommendations];
+    [tracks minusSet:self.recommendedTracks];
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    FWTrack *track = [self.recommendations objectAtIndex:indexPath.row];
-    cell.textLabel.text = track.title;
+    self.track = [tracks anyObject];;
+    
+    self.artistLabel.text = self.track.user.name;
+    self.trackLabel.text = self.track.title;
+    
+    [self.track.audioStream play];
 }
 
 @end

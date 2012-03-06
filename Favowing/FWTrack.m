@@ -14,6 +14,7 @@
 
 @synthesize favoriters;
 @synthesize user = _user;
+@synthesize audioStream = _audioStream;
 
 - (FWUser *)user
 {
@@ -43,9 +44,13 @@
 
 - (SCAudioStream *)audioStream
 {
+    if (_audioStream != nil) {
+        return _audioStream;
+    }
     NSString *stringURL = [self valueForKeyPath:@"stream_url"];
     NSURL *URL = [NSURL URLWithString:stringURL];    
-    return [[FWAppDelegate api] audioStreamWithURL:URL];
+    _audioStream = [[FWAppDelegate api] audioStreamWithURL:URL];    
+    return _audioStream;
 }
 
 @end

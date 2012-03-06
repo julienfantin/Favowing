@@ -10,7 +10,7 @@
 
 #import "FWAppDelegate+API.h"
 
-#import "FWFavoritesViewController.h"
+#import "FWRootViewController.h"
 
 @implementation FWAppDelegate
 
@@ -48,7 +48,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    FWFavoritesViewController *controller;
+    FWRootViewController *controller;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -56,11 +56,11 @@
         splitViewController.delegate = (id)navigationController.topViewController;
         
         UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-        controller = (FWFavoritesViewController *)masterNavigationController.topViewController;
+        controller = (FWRootViewController *)masterNavigationController.topViewController;
         
     } else {
         UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        controller = (FWFavoritesViewController *)navigationController.topViewController;
+        controller = (FWRootViewController *)navigationController.topViewController;
     }
 
     controller.user = self.user;

@@ -17,7 +17,7 @@
 @property (readonly, nonatomic) NSString *title;
 @property (readonly, nonatomic) BOOL isUserFavorite;
 @property (readonly, nonatomic) BOOL isStreamable;
-@property (readonly, nonatomic) SCAudioStream *audioStream;
+@property (readonly, strong, nonatomic) SCAudioStream *audioStream;
 
 @property (readonly, strong, nonatomic) FWUser *user;
 

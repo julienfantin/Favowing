@@ -7,13 +7,10 @@
 //
 
 #import "FWFavoritesViewController.h"
-#import "FWAppDelegate+API.h"
 #import "FWRecommendationViewController.h"
 #import "FWUser.h"
 #import "FWTrack.h"
-#import "FWFavoritesOperation.h"
 #import "FWRecommendationOperation.h"
-#import "FWFollowingsOperation.h"
 
 @interface FWFavoritesViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -47,9 +44,7 @@
     else {
         self.title = [NSString stringWithFormat:@"%@'s Favorites", self.user.name];
     }
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidAuthenticate) name:kSoundCloudAPIDidAuthenticateNotification object:nil];
-    
+        
     self.detailViewController = (FWRecommendationViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
@@ -69,17 +64,6 @@
     }
 }
 
-- (void)userDidAuthenticate
-{
-    FWFavoritesOperation *operation = [[FWFavoritesOperation alloc] initWithUser:self.user];
-    operation.delegate = self;
-    operation.fetchAll = YES;
-    [self.queue addOperation:operation];
-    
-    FWFollowingsOperation *operation2 = [[FWFollowingsOperation alloc] initWithUser:self.user];
-    operation2.fetchAll = YES;
-    [self.queue addOperation:operation2];
-}
 
 #pragma mark - <FWOperationDelegate>
 

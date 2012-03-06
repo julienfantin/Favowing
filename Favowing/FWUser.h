@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSArray *favorites;
 @property (strong, nonatomic) NSArray *followings;
+@property (strong, nonatomic) NSArray *recommendations;
 @property (readonly, nonatomic) NSString *name;
 - (NSNumber *)similarityScoreWithOtherUser:(FWUser *)other;
 - (NSArray *)favoritesDifferentFromUser:(FWUser *)other;

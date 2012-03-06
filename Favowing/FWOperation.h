@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "FWAppDelegate+API.h"
 
-#define kFWRequestLimit 50
+#define kFWRequestLimit 100
 
 @class FWOperation;
 @protocol  FWOperationDelegate <NSObject>

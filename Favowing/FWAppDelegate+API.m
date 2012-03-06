@@ -77,7 +77,7 @@ static char kFWSCAPI;
 
 - (void)soundCloudAPI:(SCSoundCloudAPI *)soundCloudAPI didFinishWithData:(NSData *)data context:(id)context userInfo:(id)userInfo
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%@\n%@", NSStringFromSelector(_cmd), context);
     
     if ([context conformsToProtocol:@protocol(SCRequestContext)]) {
         [(id<SCRequestContext>)context apiRequestDidFinishWithData:data];

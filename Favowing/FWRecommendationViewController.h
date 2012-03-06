@@ -13,11 +13,17 @@
 
 #define kFWRecommendationPageCount 25
 
-@interface FWRecommendationViewController : UITableViewController <UISplitViewControllerDelegate,
-                                                                   FWOperationDelegate>
+@interface FWRecommendationViewController : UIViewController <UISplitViewControllerDelegate,
+                                                              FWOperationDelegate>
 
 @property (strong, nonatomic) FWUser *user;
-@property (strong, nonatomic) FWTrack *track;
 @property (strong, nonatomic) NSOperationQueue *queue;
+
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UILabel *trackLabel;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionLabel;
 
 @end

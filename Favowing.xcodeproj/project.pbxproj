@@ -13,6 +13,7 @@
 		7131B4C01500DD4100AB20FD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7131B4BE1500DD4100AB20FD /* Model.xcdatamodeld */; };
 		71454A941504FF26007E0E1C /* FWTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71454A931504FF26007E0E1C /* FWTrackCell.xib */; };
 		71454A9715051B3A007E0E1C /* FWFollowingsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71454A9615051B3A007E0E1C /* FWFollowingsOperation.m */; };
+		716222041505E6CB00DC00A5 /* FWRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716222031505E6CB00DC00A5 /* FWRootViewController.m */; };
 		71A5355B1504C44800097DE4 /* FWOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A5355A1504C44800097DE4 /* FWOperation.m */; };
 		71A5355E1504C54A00097DE4 /* FWFavoritersOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A5355D1504C54A00097DE4 /* FWFavoritersOperation.m */; };
 		71A535611504CACC00097DE4 /* FWRecommendationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A535601504CACC00097DE4 /* FWRecommendationOperation.m */; };
@@ -86,6 +87,8 @@
 		71454A931504FF26007E0E1C /* FWTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FWTrackCell.xib; sourceTree = "<group>"; };
 		71454A9515051B39007E0E1C /* FWFollowingsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWFollowingsOperation.h; sourceTree = "<group>"; };
 		71454A9615051B3A007E0E1C /* FWFollowingsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWFollowingsOperation.m; sourceTree = "<group>"; };
+		716222021505E6CB00DC00A5 /* FWRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWRootViewController.h; sourceTree = "<group>"; };
+		716222031505E6CB00DC00A5 /* FWRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWRootViewController.m; sourceTree = "<group>"; };
 		71A535591504C44800097DE4 /* FWOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWOperation.h; sourceTree = "<group>"; };
 		71A5355A1504C44800097DE4 /* FWOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWOperation.m; sourceTree = "<group>"; };
 		71A5355C1504C54A00097DE4 /* FWFavoritersOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWFavoritersOperation.h; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 				71DF736214FFE3C9001E91C0 /* FWAppDelegate.h */,
 				71DF736314FFE3C9001E91C0 /* FWAppDelegate.m */,
 				71DF736514FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard */,
+				716222021505E6CB00DC00A5 /* FWRootViewController.h */,
+				716222031505E6CB00DC00A5 /* FWRootViewController.m */,
 				71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */,
 				71DF736E14FFE3C9001E91C0 /* FWFavoritesViewController.h */,
 				71DF736F14FFE3C9001E91C0 /* FWFavoritesViewController.m */,
@@ -435,6 +440,7 @@
 				71A5355E1504C54A00097DE4 /* FWFavoritersOperation.m in Sources */,
 				71A535611504CACC00097DE4 /* FWRecommendationOperation.m in Sources */,
 				71454A9715051B3A007E0E1C /* FWFollowingsOperation.m in Sources */,
+				716222041505E6CB00DC00A5 /* FWRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

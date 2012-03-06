@@ -109,14 +109,22 @@
 - (void)apiRequestDidFinishWithData:(NSData *)data
 {
     NSArray *objects = [self parseObjects:data];
+
     [self requestDidFinishWithData:data];
 
     if (self.fetchAll && [objects count] == kFWRequestLimit) {
+        
         FWOperation *operation = [self copy];
+//        operation.delegate = self.delegate;
         operation.page = self.page + 1;
         [self.queue addOperation:operation];
     }
 //    else {        
+    
+    if ([self.delegate respondsToSelector:@selector(operationDidFinish:)]) {
+        [self.delegate operationDidFinish:self];
+    }
+
         [self finish];
 //    }
 }
@@ -129,12 +137,14 @@
 }
 
 - (void)finish
-{
-    if ([self.delegate respondsToSelector:@selector(operationDidFinish:)]) {
-        [self.delegate operationDidFinish:self];
-    }
+{    
+    [self willChangeValueForKey:@"isExecuting"];
+    executing = NO;
+    [self didChangeValueForKey:@"isExecuting"];
     
+    [self willChangeValueForKey:@"isFinished"];
     finished = YES;
+    [self didChangeValueForKey:@"isFinished"];
 }
 
 - (void)fail
@@ -143,7 +153,7 @@
         [self.delegate operationDidFail:self];
     }
     
-    finished = YES;
+    [self finish];
 }
 
 - (void)requestDidFinishWithData:(NSData *)data
