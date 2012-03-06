@@ -17,6 +17,7 @@
                                                               FWOperationDelegate>
 
 @property (strong, nonatomic) FWUser *user;
+@property (strong, nonatomic) FWTrack *seedTrack;
 @property (strong, nonatomic) NSOperationQueue *queue;
 
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
@@ -25,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *trackLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionLabel;
+@property (strong, nonatomic) NSArray *recommendations;
 
 @end

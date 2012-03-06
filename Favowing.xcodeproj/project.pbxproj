@@ -29,7 +29,6 @@
 		71DF736014FFE3C9001E91C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF735F14FFE3C9001E91C0 /* main.m */; };
 		71DF736414FFE3C9001E91C0 /* FWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736314FFE3C9001E91C0 /* FWAppDelegate.m */; };
 		71DF736714FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DF736514FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard */; };
-		71DF736A14FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */; };
 		71DF736D14FFE3C9001E91C0 /* Favowing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736B14FFE3C9001E91C0 /* Favowing.xcdatamodeld */; };
 		71DF737014FFE3C9001E91C0 /* FWFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF736F14FFE3C9001E91C0 /* FWFavoritesViewController.m */; };
 		71DF737314FFE3C9001E91C0 /* FWRecommendationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DF737214FFE3C9001E91C0 /* FWRecommendationViewController.m */; };
@@ -114,7 +113,6 @@
 		71DF736214FFE3C9001E91C0 /* FWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWAppDelegate.h; sourceTree = "<group>"; };
 		71DF736314FFE3C9001E91C0 /* FWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWAppDelegate.m; sourceTree = "<group>"; };
 		71DF736614FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		71DF736914FFE3C9001E91C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		71DF736C14FFE3C9001E91C0 /* Favowing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favowing.xcdatamodel; sourceTree = "<group>"; };
 		71DF736E14FFE3C9001E91C0 /* FWFavoritesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWFavoritesViewController.h; sourceTree = "<group>"; };
 		71DF736F14FFE3C9001E91C0 /* FWFavoritesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWFavoritesViewController.m; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				71DF736514FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard */,
 				716222021505E6CB00DC00A5 /* FWRootViewController.h */,
 				716222031505E6CB00DC00A5 /* FWRootViewController.m */,
-				71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */,
 				71DF736E14FFE3C9001E91C0 /* FWFavoritesViewController.h */,
 				71DF736F14FFE3C9001E91C0 /* FWFavoritesViewController.m */,
 				71DF737114FFE3C9001E91C0 /* FWRecommendationViewController.h */,
@@ -386,7 +383,6 @@
 			files = (
 				71DF735E14FFE3C9001E91C0 /* InfoPlist.strings in Resources */,
 				71DF736714FFE3C9001E91C0 /* MainStoryboard_iPhone.storyboard in Resources */,
-				71DF736A14FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard in Resources */,
 				711FF0361500F6EA00D2425F /* SoundCloud.bundle in Resources */,
 				711FF07815010D0A00D2425F /* TrackFixture.json in Resources */,
 				71AC268F150122E100B2B05B /* FavoritesFixture.json in Resources */,
@@ -484,14 +480,6 @@
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		71DF736814FFE3C9001E91C0 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				71DF736914FFE3C9001E91C0 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		71DF738414FFE3C9001E91C0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -567,6 +555,7 @@
 				GCC_PREFIX_HEADER = "Favowing/Favowing-Prefix.pch";
 				INFOPLIST_FILE = "Favowing/Favowing-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -578,6 +567,7 @@
 				GCC_PREFIX_HEADER = "Favowing/Favowing-Prefix.pch";
 				INFOPLIST_FILE = "Favowing/Favowing-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

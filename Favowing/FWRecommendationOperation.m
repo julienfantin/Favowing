@@ -34,23 +34,16 @@
         self.track = aTrack;
         self.user = aUser;
         self.similarUsers = [NSMutableDictionary dictionary];
+        self.queue = [NSOperationQueue currentQueue];
+
     }
     return self;
-}
-
-- (void)start
-{
-    // Get a reference to the currentQueue before we start the background thread
-    self.queue = [NSOperationQueue currentQueue];
-    
-    [super start];
 }
 
 - (void)perform
 {
     self.favoriters = [[FWFavoritersOperation alloc] initWithTrack:self.track];
     self.favoriters.delegate = self;
-    [self addDependency:self.favoriters];
     [self.queue addOperation:self.favoriters];
 }
 
@@ -116,9 +109,7 @@
                 [recommendations addObject:similar];
             }
         }
-//        [recommendations addObjectsFromArray:tracks];
     }];
-    
     
     return recommendations;
 }

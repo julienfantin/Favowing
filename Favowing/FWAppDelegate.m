@@ -48,20 +48,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    FWRootViewController *controller;
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-        
-        UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-        controller = (FWRootViewController *)masterNavigationController.topViewController;
-        
-    } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        controller = (FWRootViewController *)navigationController.topViewController;
-    }
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    FWRootViewController *controller = (FWRootViewController *)navigationController.topViewController;
 
     controller.user = self.user;
     controller.queue = self.queue;

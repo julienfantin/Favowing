@@ -7,11 +7,11 @@
 //
 
 #import "FWRecommendationViewController.h"
+#import "FWFavoritesViewController.h"
 #import "FWRecommendationOperation.h"
 
 @interface FWRecommendationViewController ()
 @property (strong, nonatomic) FWTrack *track;
-@property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) NSMutableSet *recommendedTracks;
 - (void)configureView;
 @end
@@ -19,9 +19,10 @@
 @implementation FWRecommendationViewController
 
 @synthesize user = _user;
+@synthesize seedTrack = _seedTrack;
 @synthesize track = _track;
+@synthesize recommendations;
 @synthesize queue;
-@synthesize masterPopoverController = _masterPopoverController;
 @synthesize recommendedTracks;
 @synthesize likeButton;
 @synthesize followButton;
@@ -44,11 +45,21 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
+    [super viewDidLoad];    
     self.title = @"Recommendations";
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    if (self.recommendations != nil) {
+        return;
+    }
     
-    FWRecommendationOperation *operation = [[FWRecommendationOperation alloc] initWithTrack:self.track andUser:self.user];
+    NSSet *favorites = [NSSet setWithArray:self.user.favorites];
+    self.seedTrack = [favorites anyObject];
+    FWRecommendationOperation *operation = [[FWRecommendationOperation alloc] initWithTrack:self.seedTrack andUser:self.user];
     operation.delegate = self;
     [self.queue addOperation:operation];
 }
@@ -73,33 +84,17 @@
     }
 }
 
-#pragma mark - Split view
-
-- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
-{
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
-    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
-    self.masterPopoverController = popoverController;
-}
-
-- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    self.masterPopoverController = nil;
-}
-
 #pragma mark - <FWOperationDelegate>
 
 - (void)operationDidFail:(FWOperation *)operation
 {
-    
+    //
 }
 
 - (void)operationDidFinish:(FWOperation *)operation
 {
     if ([operation isKindOfClass:[FWRecommendationOperation class]]) {
-        self.user.recommendations = [(FWRecommendationOperation *)operation recommendations];
+        self.recommendations = [(FWRecommendationOperation *)operation recommendations];
     }
     
     [self configureView];
@@ -113,7 +108,7 @@
     }
     
     // Filter out the tracks we've already recommended
-    NSMutableSet *tracks = [NSMutableSet setWithArray:self.user.recommendations];
+    NSMutableSet *tracks = [NSMutableSet setWithArray:self.recommendations];
     [tracks minusSet:self.recommendedTracks];
 
     self.track = [tracks anyObject];;
@@ -122,6 +117,15 @@
     self.trackLabel.text = self.track.title;
     
     [self.track.audioStream play];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"pickSeedTrack"]){
+        FWFavoritesViewController *vc = (FWFavoritesViewController *)[segue destinationViewController];
+        vc.user = self.user;
+        vc.queue = self.queue;
+    }
 }
 
 @end

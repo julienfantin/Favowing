@@ -50,7 +50,6 @@
     executing = YES;
     [self didChangeValueForKey:@"isExecuting"];
     
-    
     // Detach
     [NSThread detachNewThreadSelector:@selector(main) toTarget:self withObject:nil];
 }

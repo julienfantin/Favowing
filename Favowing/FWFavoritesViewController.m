@@ -44,8 +44,6 @@
     else {
         self.title = [NSString stringWithFormat:@"%@'s Favorites", self.user.name];
     }
-        
-    self.detailViewController = (FWRecommendationViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)viewDidUnload
@@ -98,20 +96,14 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-    }
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"pickedSeedTrack"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         FWTrack *track = [self.user.favorites objectAtIndex:indexPath.row];
-        [[segue destinationViewController] setUser:self.user];
-        [[segue destinationViewController] setTrack:track];
-        [segue.destinationViewController setQueue:self.queue];
+        FWRecommendationViewController *vc = (FWRecommendationViewController *)segue.destinationViewController;
+        vc.seedTrack = track;
+        vc.recommendations = nil;
     }
 }    
 

@@ -13,7 +13,6 @@
 
 @synthesize favorites;
 @synthesize followings;
-@synthesize recommendations;
 
 - (NSNumber *)similarityScoreWithOtherUser:(FWUser *)other
 {

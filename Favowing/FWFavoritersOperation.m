@@ -46,13 +46,18 @@
 
 - (void)requestDidFinishWithData:(NSData *)data
 {    
-    NSArray *favoriters = [FWUser objectsWithData:data];
+    NSArray *favoriters = [self parseObjects:data];
     
     if (self.track.favoriters != nil) {
-        favoriters = [self.track.favoriters arrayByAddingObject:favoriters];
+        favoriters = [self.track.favoriters arrayByAddingObjectsFromArray:favoriters];
     }
 
     self.track.favoriters = favoriters;
+}
+
+- (NSArray *)parseObjects:(NSData *)data
+{
+    return [FWUser objectsWithData:data];
 }
 
 @end
