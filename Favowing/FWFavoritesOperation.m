@@ -27,14 +27,22 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    FWFavoritesOperation *copy = [FWFavoritesOperation allocWithZone:zone];
+    FWFavoritesOperation *copy = [[FWFavoritesOperation allocWithZone:zone] initWithUser:self.user];
     copy.delegate = self.delegate;
-    copy.user = self.user;
     copy.fetchAll = self.fetchAll;
     return copy;
 }
 
 - (void)perform
+{
+    [[FWAppDelegate api] performMethod:@"GET"
+                            onResource:self.resourcePath
+                        withParameters:self.requestParams
+                               context:self
+                              userInfo:nil];
+}
+
+- (NSString *)resourcePath
 {
     NSString *resourcePath;
     
@@ -45,19 +53,18 @@
         resourcePath = [NSString stringWithFormat:@"/users/%@/favorites", self.user.uid];
     }
 
-    [[FWAppDelegate api] performMethod:@"GET" onResource:resourcePath withParameters:self.requestParams context:self userInfo:nil];
+    return resourcePath;
 }
 
 - (void)requestDidFinishWithData:(NSData *)data
 {    
-    NSArray *tracks = [FWTrack objectsWithData:data];
+    NSArray *tracks = [self parseObjects:data];
     
     if (self.user.favorites != nil) {
-        [self.user.favorites arrayByAddingObjectsFromArray:tracks];
+        tracks = [self.user.favorites arrayByAddingObjectsFromArray:tracks];
     }
-    else {
-        self.user.favorites = tracks;
-    }
+
+    self.user.favorites = tracks;
 }
 
 - (NSArray *)parseObjects:(NSData *)data

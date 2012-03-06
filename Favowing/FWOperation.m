@@ -8,11 +8,18 @@
 
 #import "FWOperation.h"
 
+@interface FWOperation ()
+@property (strong, atomic) NSOperationQueue *queue;
+@property (strong, nonatomic) NSMutableArray *nextOperations;
+@end
+
 @implementation FWOperation
 
 @synthesize delegate;
 @synthesize page;
 @synthesize fetchAll;
+@synthesize queue;
+@synthesize nextOperations;
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -22,17 +29,23 @@
 
 - (void)start
 {
+    // KVO
     if ([self isCancelled]) {
         [self willChangeValueForKey:@"isFinished"];
         finished = YES;
         [self didChangeValueForKey:@"isFinished"];
         return;
     }
-    
+
     [self willChangeValueForKey:@"isExecuting"];
     executing = YES;
     [self didChangeValueForKey:@"isExecuting"];
+
+    // Internal state
+    self.queue = [NSOperationQueue currentQueue];
+    self.nextOperations = [NSMutableArray array];
     
+    // Detach
     [NSThread detachNewThreadSelector:@selector(main) toTarget:self withObject:nil];
 }
 
@@ -71,9 +84,15 @@
     return finished;
 }
 
+- (NSString *)resourcePath
+{
+    NSAssert(NO, @"Abstract Method");
+    return nil;
+}
+
 - (void)perform
 {
-    NSAssert(NO, @"AbstractMethod");
+    NSAssert(NO, @"Abstract Method");
 }
 
 - (NSDictionary *)requestParams
@@ -90,20 +109,16 @@
 - (void)apiRequestDidFinishWithData:(NSData *)data
 {
     NSArray *objects = [self parseObjects:data];
-    
     [self requestDidFinishWithData:data];
 
     if (self.fetchAll && [objects count] == kFWRequestLimit) {
         FWOperation *operation = [self copy];
         operation.page = self.page + 1;
-        operation.delegate = self;
-        NSOperationQueue *q = [NSOperationQueue currentQueue];
-        [q addOperation:operation];
-        [self addDependency:operation];
+        [self.queue addOperation:operation];
     }
-    else {        
+//    else {        
         [self finish];
-    }
+//    }
 }
 
 - (void)apiRequestDidFailWithError:(NSError *)error
@@ -133,36 +148,18 @@
 
 - (void)requestDidFinishWithData:(NSData *)data
 {
-    NSAssert(NO, @"Abstract method: override and mark as finished");
+    NSAssert(NO, @"Abstract Method: override and mark as finished");
 }
 
 - (void)requestDidFailWithError:(NSError *)error
 {
     NSLog(@"%@", error);
-    NSAssert(NO, @"Abstract method: override and mark as finished");    
-}
-
-- (void)operationDidFail:(FWOperation *)operation
-{
-    [self removeDependency:operation];
-    
-    if (! [self.dependencies count]) {
-        [self fail];
-    }
-}
-
-- (void)operationDidFinish:(FWOperation *)operation
-{
-    [self removeDependency:operation];
-
-    if (! [self.dependencies count]) {
-        [self finish];
-    }
+    NSAssert(NO, @"Abstract Method: override and mark as finished");    
 }
 
 - (NSArray *)parseObjects:(NSData *)data
 {
-    NSAssert(NO, @"Abstract method");    
+    NSAssert(NO, @"Abstract Method");
     return nil;
 }
 

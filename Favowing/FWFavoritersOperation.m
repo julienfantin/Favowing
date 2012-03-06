@@ -23,26 +23,37 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    FWFavoritersOperation *copy = [[FWFavoritersOperation allocWithZone:zone] initWithTrack:self.track];
+    copy.delegate = self.delegate;
+    copy.fetchAll = self.fetchAll;
+    return copy;
+}
+
 - (void)perform
 {
-    NSString *resourcePath = [NSString stringWithFormat:@"/tracks/%@/favoriters", self.track.uid];
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", kFWRequestLimit], @"limit", nil];
-    [[FWAppDelegate api] performMethod:@"GET" onResource:resourcePath withParameters:params context:self userInfo:nil];
+    [[FWAppDelegate api] performMethod:@"GET" 
+                            onResource:self.resourcePath
+                        withParameters:self.requestParams
+                               context:self
+                              userInfo:nil];
+}
+
+- (NSString *)resourcePath
+{
+    return [NSString stringWithFormat:@"/tracks/%@/favoriters", self.track.uid];
 }
 
 - (void)requestDidFinishWithData:(NSData *)data
-{
-    finished = YES;
-    
+{    
     NSArray *favoriters = [FWUser objectsWithData:data];
+    
+    if (self.track.favoriters != nil) {
+        favoriters = [self.track.favoriters arrayByAddingObject:favoriters];
+    }
+
     self.track.favoriters = favoriters;
 }
-
-- (void)requestDidFailWithError:(NSError *)error
-{
-    finished = YES;
-}
-
 
 @end

@@ -25,14 +25,13 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    FWFollowingsOperation *copy = [FWFollowingsOperation allocWithZone:zone];
+    FWFollowingsOperation *copy = [[FWFollowingsOperation allocWithZone:zone] initWithUser:user];
     copy.delegate = self.delegate;
-    copy.user = self.user;
-    
+    copy.fetchAll = self.fetchAll;
     return copy;
 }
 
-- (void)perform
+- (NSString *)resourcePath
 {
     NSString *resourcePath;
     
@@ -42,8 +41,15 @@
     else {
         resourcePath = [NSString stringWithFormat:@"/users/%@/followings", self.user.uid];
     }
+
+    return resourcePath;
+}
+
+- (void)perform
+{
     
-    [[FWAppDelegate api] performMethod:@"GET" onResource:resourcePath 
+    [[FWAppDelegate api] performMethod:@"GET" 
+                            onResource:self.resourcePath 
                         withParameters:self.requestParams
                                context:self 
                               userInfo:nil];
@@ -54,15 +60,15 @@
     NSArray *users = [self parseObjects:data];
     
     if (self.user.followings != nil) {
-        [self.user.followings arrayByAddingObjectsFromArray:users];
+        users = [self.user.followings arrayByAddingObjectsFromArray:users];
     }
-    else {
-        self.user.followings = users;
-    }
+
+    self.user.followings = users;
 }
 
 - (NSArray *)parseObjects:(NSData *)data
 {
     return [FWUser objectsWithData:data];
 }
+
 @end

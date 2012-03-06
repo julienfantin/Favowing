@@ -17,8 +17,9 @@
 - (void)operationDidFail:(FWOperation *)operation;
 @end
 
-@interface FWOperation : NSOperation <SCRequestContext, FWOperationDelegate>
+@interface FWOperation : NSOperation <SCRequestContext>
 {
+    @private
     BOOL executing;
     BOOL finished;
 }
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) id<FWOperationDelegate> delegate;
 @property (nonatomic) NSUInteger page;
 @property (readonly, nonatomic) NSDictionary *requestParams;
+@property (readonly, nonatomic) NSString *resourcePath;
 @property (readwrite, nonatomic) BOOL fetchAll;
 
 - (void)perform;
