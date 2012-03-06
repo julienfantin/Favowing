@@ -9,6 +9,7 @@
 #import "FWOperation.h"
 
 @interface FWOperation ()
+@property (strong, nonatomic) NSThread *callingThread;
 - (void)markFinished;
 @end
 
@@ -18,6 +19,16 @@
 @synthesize page;
 @synthesize parent;
 @synthesize fetchedAll;
+@synthesize callingThread;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.callingThread = [NSThread currentThread];
+    }
+    return self;
+}
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -38,6 +49,7 @@
     [self willChangeValueForKey:@"isExecuting"];
     executing = YES;
     [self didChangeValueForKey:@"isExecuting"];
+    
     
     // Detach
     [NSThread detachNewThreadSelector:@selector(main) toTarget:self withObject:nil];
@@ -120,8 +132,10 @@
 
 - (void)finish
 {   
-    if ([self.delegate respondsToSelector:@selector(operationDidFinish:)]) {
-        [self.delegate operationDidFinish:self];
+    SEL callback = @selector(operationDidFinish:);
+    
+    if ([self.delegate respondsToSelector:callback]) {
+        [(id)self.delegate performSelector:callback onThread:self.callingThread withObject:self waitUntilDone:NO];
     }
 
     [self markFinished];
@@ -129,10 +143,12 @@
 
 - (void)fail
 {
-    if ([self.delegate respondsToSelector:@selector(operationDidFail:)]) {
-        [self.delegate operationDidFail:self];
-    }
+    SEL callback = @selector(operationDidFail:);
     
+    if ([self.delegate respondsToSelector:callback]) {
+        [(id)self.delegate performSelector:callback onThread:self.callingThread withObject:self waitUntilDone:NO];
+    }
+
     [self markFinished];
 }
 

@@ -15,6 +15,4 @@
 @property (strong, nonatomic) FWUser *user;
 @property (strong, nonatomic) NSOperationQueue *queue;
 
-- (void)doSegue:(id)sender;
-
 @end

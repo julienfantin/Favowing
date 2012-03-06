@@ -54,26 +54,14 @@
         [self.queue addOperation:moreOperation];
     }
 
-    NSLog(@"%i", [self.queue operationCount]);
-    
-    if ([self.queue operationCount] == 1) {
-        if ([NSThread isMainThread]) {
-            [self doSegue:nil];
-        }
-        else {
-            [self performSelectorOnMainThread:@selector(doSegue:) withObject:nil waitUntilDone:YES];
-        }
+    if ([self.queue operationCount] <= 1) {
+        [self performSegueWithIdentifier:@"userDidAuthenticate" sender:self];   
     }
 }
 
 - (void)operationDidFail:(FWOperation *)operation
 {
     
-}
-
-- (void)doSegue:(id)sender
-{
-    [self performSegueWithIdentifier:@"userDidAuthenticate" sender:self];   
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
