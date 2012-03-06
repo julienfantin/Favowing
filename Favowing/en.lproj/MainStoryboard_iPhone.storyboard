@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="10K549" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -50,7 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TLZ-eu-Zfh"/>
                     <connections>
-                        <segue destination="6PO-JV-3jE" kind="modal" id="WFb-Q4-KX1"/>
+                        <segue destination="6PO-JV-3jE" kind="modal" identifier="userDidAuthenticate" id="WFb-Q4-KX1"/>
                     </connections>
                 </viewController>
             </objects>
@@ -172,6 +172,25 @@
             <point key="canvasLocation" x="462" y="64"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FWFavoritesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FWFavoritesViewController.h"/>
+        </class>
+        <class className="FWRecommendationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FWRecommendationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="artistLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="trackLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FWRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FWRootViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

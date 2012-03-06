@@ -27,7 +27,6 @@
 {
     FWFavoritersOperation *copy = [[FWFavoritersOperation allocWithZone:zone] initWithTrack:self.track];
     copy.delegate = self.delegate;
-    copy.fetchAll = self.fetchAll;
     return copy;
 }
 

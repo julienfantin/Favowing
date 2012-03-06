@@ -28,7 +28,9 @@
 @property (nonatomic) NSUInteger page;
 @property (readonly, nonatomic) NSDictionary *requestParams;
 @property (readonly, nonatomic) NSString *resourcePath;
-@property (readwrite, nonatomic) BOOL fetchAll;
+@property (readwrite, nonatomic) BOOL fetchedAll;
+
+@property (strong, nonatomic) NSOperation *parent;
 
 - (void)perform;
 - (void)finish;

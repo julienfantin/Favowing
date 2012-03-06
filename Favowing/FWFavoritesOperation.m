@@ -7,7 +7,6 @@
 //
 
 #import "FWFavoritesOperation.h"
-#import "FWAppDelegate+API.h"
 #import "FWTrack.h"
 
 @implementation FWFavoritesOperation
@@ -29,7 +28,6 @@
 {
     FWFavoritesOperation *copy = [[FWFavoritesOperation allocWithZone:zone] initWithUser:self.user];
     copy.delegate = self.delegate;
-    copy.fetchAll = self.fetchAll;
     return copy;
 }
 

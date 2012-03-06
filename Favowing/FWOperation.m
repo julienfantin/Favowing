@@ -9,17 +9,15 @@
 #import "FWOperation.h"
 
 @interface FWOperation ()
-@property (strong, atomic) NSOperationQueue *queue;
-@property (strong, nonatomic) NSMutableArray *nextOperations;
+- (void)markFinished;
 @end
 
 @implementation FWOperation
 
 @synthesize delegate;
 @synthesize page;
-@synthesize fetchAll;
-@synthesize queue;
-@synthesize nextOperations;
+@synthesize parent;
+@synthesize fetchedAll;
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -40,10 +38,6 @@
     [self willChangeValueForKey:@"isExecuting"];
     executing = YES;
     [self didChangeValueForKey:@"isExecuting"];
-
-    // Internal state
-    self.queue = [NSOperationQueue currentQueue];
-    self.nextOperations = [NSMutableArray array];
     
     // Detach
     [NSThread detachNewThreadSelector:@selector(main) toTarget:self withObject:nil];
@@ -110,23 +104,11 @@
 {
     NSArray *objects = [self parseObjects:data];
 
+    self.fetchedAll = [objects count] < kFWRequestLimit;
+    
     [self requestDidFinishWithData:data];
 
-    if (self.fetchAll && [objects count] == kFWRequestLimit) {
-        
-        FWOperation *operation = [self copy];
-//        operation.delegate = self.delegate;
-        operation.page = self.page + 1;
-        [self.queue addOperation:operation];
-    }
-//    else {        
-    
-    if ([self.delegate respondsToSelector:@selector(operationDidFinish:)]) {
-        [self.delegate operationDidFinish:self];
-    }
-
-        [self finish];
-//    }
+    [self finish];
 }
 
 - (void)apiRequestDidFailWithError:(NSError *)error
@@ -137,14 +119,12 @@
 }
 
 - (void)finish
-{    
-    [self willChangeValueForKey:@"isExecuting"];
-    executing = NO;
-    [self didChangeValueForKey:@"isExecuting"];
-    
-    [self willChangeValueForKey:@"isFinished"];
-    finished = YES;
-    [self didChangeValueForKey:@"isFinished"];
+{   
+    if ([self.delegate respondsToSelector:@selector(operationDidFinish:)]) {
+        [self.delegate operationDidFinish:self];
+    }
+
+    [self markFinished];
 }
 
 - (void)fail
@@ -153,7 +133,18 @@
         [self.delegate operationDidFail:self];
     }
     
-    [self finish];
+    [self markFinished];
+}
+
+- (void)markFinished
+{
+    [self willChangeValueForKey:@"isExecuting"];
+    executing = NO;
+    [self didChangeValueForKey:@"isExecuting"];
+    
+    [self willChangeValueForKey:@"isFinished"];
+    finished = YES;
+    [self didChangeValueForKey:@"isFinished"];
 }
 
 - (void)requestDidFinishWithData:(NSData *)data

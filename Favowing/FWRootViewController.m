@@ -37,23 +37,46 @@
 {
     FWFavoritesOperation *operation = [[FWFavoritesOperation alloc] initWithUser:self.user];
     operation.delegate = self;
-    operation.fetchAll = YES;
     
     FWFollowingsOperation *operation2 = [[FWFollowingsOperation alloc] initWithUser:self.user];
-    operation2.fetchAll = YES;
+    operation2.delegate = self;
     
-    [operation addDependency:operation2];
-
     [self.queue addOperation:operation];
     [self.queue addOperation:operation2];
 }
 
 - (void)operationDidFinish:(FWOperation *)operation
 {
-    [self performSegueWithIdentifier:@"userDidAuthenticate" sender:self];
+    if (operation.fetchedAll == NO) {
+        FWOperation *moreOperation = [operation copy];
+        moreOperation.delegate = self;
+        moreOperation.page = operation.page + 1;
+        [self.queue addOperation:moreOperation];
+    }
+
+    NSLog(@"%i", [self.queue operationCount]);
+    
+    if ([self.queue operationCount] == 1) {
+        if ([NSThread isMainThread]) {
+            [self doSegue:nil];
+        }
+        else {
+            [self performSelectorOnMainThread:@selector(doSegue:) withObject:nil waitUntilDone:YES];
+        }
+    }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)operationDidFail:(FWOperation *)operation
+{
+    
+}
+
+- (void)doSegue:(id)sender
+{
+    [self performSegueWithIdentifier:@"userDidAuthenticate" sender:self];   
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"userDidAuthenticate"]){
         FWRecommendationViewController *destination = (FWRecommendationViewController *)segue.destinationViewController;
         destination.queue = self.queue;
